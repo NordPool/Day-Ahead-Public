@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- import the codelsits -->
+	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="../../core/urn-entsoe-eu-wgedi-codelists.xsd"/>
+	<!-- include the local message restrictions -->
+	<xsd:include schemaLocation="urn-entsoe-eu-wgedi-ess-scheduledocument-4-1-local-restrictions.xsd"/>
+	<!--  restricted codelists  -->
+	<!-- Area Type -->
+	<xsd:complexType name="AreaType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="18"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedAreaCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedAreaCodingSchemeType">
+		<xsd:restriction base="ecl:StandardCodingSchemeType">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A10"/>
+			<xsd:enumeration value="NDK"/>
+			<xsd:enumeration value="NFI"/>
+			<xsd:enumeration value="NNO"/>
+			<xsd:enumeration value="NSE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="DocumentType">
+		<xsd:attribute name="v" type="RestrictedDocumentType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedDocumentType">
+		<xsd:restriction base="ecl:StandardDocumentTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A55"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Area Type -->
+	<xsd:complexType name="DomainType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="18"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedDomainCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedDomainCodingSchemeType">
+		<xsd:restriction base="ecl:StandardCodingSchemeType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ProcessType">
+		<xsd:attribute name="v" type="RestrictedProcessType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedProcessType">
+		<xsd:restriction base="ecl:StandardProcessTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A17"/>
+			<xsd:enumeration value="A19"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedProcessType">
+		<xsd:union memberTypes="StandardRestrictedProcessType LocalRestrictedProcessType"/>
+	</xsd:simpleType>
+	<!-- Classification Type -->
+	<xsd:complexType name="ClassificationType">
+		<xsd:attribute name="v" type="RestrictedClassificationType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedClassificationType">
+		<xsd:restriction base="ecl:StandardClassificationTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A02"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- EnergyProductType -->
+	<xsd:complexType name="EnergyProductType">
+		<xsd:attribute name="v" type="RestrictedEnergyProductType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedEnergyProductType">
+		<xsd:restriction base="ecl:StandardEnergyProductTypeList">
+			<xsd:enumeration value="8716867000030"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Party Type -->
+	<xsd:complexType name="PartyType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="16"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedCodingSchemeType">
+		<xsd:restriction base="ecl:StandardCodingSchemeType">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A10"/>
+			<xsd:enumeration value="NFI"/>
+			<xsd:enumeration value="NSE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Role Type Sender -->
+	<xsd:complexType name="SenderRoleType">
+		<xsd:attribute name="v" type="RestrictedRoleType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedRoleType">
+		<xsd:restriction base="ecl:StandardRoleTypeList">
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A08"/>
+			<xsd:enumeration value="A11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Role Type Receiver -->
+	<xsd:complexType name="ReceiverRoleType">
+		<xsd:attribute name="v" type="RestrictedReceiverRoleType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedReceiverRoleType">
+		<xsd:restriction base="ecl:StandardRoleTypeList">
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A05"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="BusinessType">
+		<xsd:attribute name="v" type="RestrictedBusinessType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedBusinessType">
+		<xsd:restriction base="ecl:StandardBusinessTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A02"/>
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A06"/>
+			<xsd:enumeration value="A08"/>
+			<xsd:enumeration value="A66"/>
+			<xsd:enumeration value="A77"/>
+			<xsd:enumeration value="A78"/>
+			<xsd:enumeration value="A79"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="ObjectAggregationType">
+		<xsd:attribute name="v" type="RestrictedObjectAggregationType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedObjectAggregationType">
+		<xsd:restriction base="ecl:StandardObjectAggregationTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A03"/>
+			<xsd:enumeration value="A04"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Unit of Measure Type -->
+	<xsd:complexType name="UnitOfMeasureType">
+		<xsd:attribute name="v" type="RestrictedUnitOfMeasureType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedUnitOfMeasureType">
+		<xsd:restriction base="ecl:StandardUnitOfMeasureTypeList">
+			<xsd:enumeration value="KWH"/>
+			<xsd:enumeration value="MWH"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

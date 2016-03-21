@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="../../core/urn-entsoe-eu-wgedi-codelists.xsd"/>
+	<!-- include the local message restrictions -->
+	<xsd:include schemaLocation="NEG-AreaSpecification-local-restrictions.xsd"/>
+	<xsd:simpleType name="RestrictedCodingSchemeType">
+		<xsd:restriction base="ecl:StandardCodingSchemeType">
+			<xsd:enumeration value="A01"/>	
+			<xsd:enumeration value="A10"/>
+			<xsd:enumeration value="NFI"/>
+			<xsd:enumeration value="NNO"/>
+			<xsd:enumeration value="NSE"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<!-- Area Type -->
+	<xsd:complexType name="AreaType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="16"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!-- Asset Type  -->
+	<xsd:complexType name="AssetType">
+		<xsd:attribute name="v" type="RestrictedAssetType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedAssetType">
+		<xsd:restriction base="ecl:StandardAssetTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A02"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedAssetType">
+		<xsd:union memberTypes="StandardRestrictedAssetType LocalRestrictedAssetType"/>
+	</xsd:simpleType>
+	<!-- Component Asset Type  -->
+	<xsd:complexType name="ComponentAssetType">
+		<xsd:attribute name="v" type="RestrictedComponentAssetType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedComponentAssetType">
+		<xsd:restriction base="LocalRestrictedComponentAssetType">
+			<xsd:enumeration value="Z01"/>
+			<xsd:enumeration value="Z02"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Document Type -->
+	<xsd:complexType name="DocumentType">
+		<xsd:attribute name="v" type="RestrictedDocumentType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedDocumentType">
+		<xsd:restriction base="LocalRestrictedDocumentType"/>
+	</xsd:simpleType>
+	<!-- Party Type -->
+	<xsd:complexType name="PartyType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="16"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!-- Process Type -->
+	<xsd:complexType name="ProcessType">
+		<xsd:attribute name="v" type="RestrictedProcessType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedProcessType">
+		<xsd:restriction base="LocalRestrictedProcessType"/>
+	</xsd:simpleType>
+	<!-- Role Type Sender -->
+	<xsd:complexType name="SenderRoleType">
+		<xsd:attribute name="v" type="RestrictedRoleType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedRoleType">
+		<xsd:restriction base="ecl:StandardRoleTypeList">
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A05"/>
+			<xsd:enumeration value="A11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Role Type Receiver -->
+	<xsd:complexType name="ReceiverRoleType">
+		<xsd:attribute name="v" type="RestrictedReceiverRoleType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedReceiverRoleType">
+		<xsd:restriction base="ecl:StandardRoleTypeList">
+			<xsd:enumeration value="A05"/>
+			<xsd:enumeration value="A08"/>
+			<xsd:enumeration value="A11"/>
+			<xsd:enumeration value="A12"/>
+			<xsd:enumeration value="A26"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
