@@ -4,14 +4,14 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" xmlns:ecc="urn:entsoe.eu:wgedi:components" targetNamespace="urn:entsoe.eu:wgedi:components" elementFormDefault="qualified">
 	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="urn-entsoe-eu-wgedi-codelists.xsd"/>
 	<!--_________________________________________________-->
-	<!--                            ETSO CORE COMPONENTS          V18 R0     -->
+	<!--                            ETSO CORE COMPONENTS          V22 R0     -->
 	<!--_________________________________________________-->
 	<xsd:annotation>
 		<xsd:documentation>
 			<Titre> List of ETSO Core Components which are used in the development of ETSO XML Messages  </Titre>
-			<Version>Current Version: 18</Version>
+			<Version>Current Version: 22</Version>
 			<Release>Current Release: 0</Release>
-			<LastCoreComponent>ET0049</LastCoreComponent>
+			<LastCoreComponent>ET0050</LastCoreComponent>
 		</xsd:documentation>
 	</xsd:annotation>
 	<!--_________________________________________________-->
@@ -122,6 +122,23 @@
 		</xsd:attribute>
 	</xsd:complexType>
 	<!--_________________________________________________-->
+	<xsd:complexType name="LineType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0050</Uid>
+				<Definition>the identification of a line that may be physical or virtual.</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="35"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="ecl:CodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!--_________________________________________________-->
 	<xsd:complexType name="LongIdentificationType">
 		<xsd:annotation>
 			<xsd:documentation>
@@ -137,21 +154,11 @@
 		</xsd:attribute>
 	</xsd:complexType>
 	<!--_________________________________________________-->
-	<xsd:complexType name="MessageDateTimeType">
-		<xsd:annotation>
-			<xsd:documentation>
-				<Uid>ET0006</Uid>
-				<Definition> (Synonym "Document Date Time") Date and time of the preparation of a document. The time must be expressed in UTC as: YYYY-MM-DDTHH:MM:SSZ</Definition>
-			</xsd:documentation>
-		</xsd:annotation>
-		<xsd:attribute name="v" type="xsd:dateTime" use="required"/>
-	</xsd:complexType>
-	<!--_________________________________________________-->
 	<xsd:complexType name="DocumentDateTimeType">
 		<xsd:annotation>
 			<xsd:documentation>
 				<Uid>ET0006</Uid>
-				<Definition> (Synonym "Document Date Time") Date and time of the preparation of a document. The time must be expressed in UTC as: YYYY-MM-DDTHH:MM:SSZ</Definition>
+				<Definition> (Synonym "Message Date Time") Date and time of the preparation of a document. The time must be expressed in UTC as: YYYY-MM-DDTHH:MM:SSZ</Definition>
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:attribute name="v" type="xsd:dateTime" use="required"/>
@@ -326,7 +333,7 @@
 			</xsd:annotation>
 			<xsd:simpleType>
 				<xsd:restriction base="xsd:string">
-					<xsd:pattern value="[2][0][0-1][0-9][\-][0-1][0-9][\-][0-3][0-9][T][0-2][0-9][:][0-6][0-9][Z][/][2][0][0-1][0-9][\-][0-1][0-9][\-][0-3][0-9][T][0-2][0-9][:][0-6][0-9][Z]"/>
+					<xsd:pattern value="(((((20[0-9]{2})[\-](0[13578]|1[02])[\-](0[1-9]|[12][0-9]|3[01])|([0-9]{4})[\-]((0[469])|(11))[\-](0[1-9]|[12][0-9]|30))T(([01][0-9]|2[0-3]):[0-5][0-9])Z/)|(([13579][26][02468][048]|[13579][01345789](0)[48]|[13579][01345789][2468][048]|[02468][048][02468][048]|[02468][1235679](0)[48]|[02468][1235679][2468][048]|[0-9][0-9][13579][26])[\-](02)[\-](0[1-9]|1[0-9]|2[0-9])T(([01][0-9]|2[0-3]):[0-5][0-9])Z/)|(([13579][26][02468][1235679]|[13579][01345789](0)[01235679]|[13579][01345789][2468][1235679]|[02468][048][02468][1235679]|[02468][1235679](0)[01235679]|[02468][1235679][2468][1235679]|[0-9][0-9][13579][01345789])[\-](02)[\-](0[1-9]|1[0-9]|2[0-8])T(([01][0-9]|2[0-3]):[0-5][0-9])Z/))(((([0-9]{4})-(0[13578]|1[02])[\-](0[1-9]|[12][0-9]|3[01])|([0-9]{4})[\-]((0[469])|(11))[\-](0[1-9]|[12][0-9]|30))T(([01][0-9]|2[0-3]):[0-5][0-9])Z)|(([13579][26][02468][048]|[13579][01345789](0)[48]|[13579][01345789][2468][048]|[02468][048][02468][048]|[02468][1235679](0)[48]|[02468][1235679][2468][048]|[0-9][0-9][13579][26])[\-](02)[\-](0[1-9]|1[0-9]|2[0-9])T(([01][0-9]|2[0-3]):[0-5][0-9])Z)|(([13579][26][02468][1235679]|[13579][01345789](0)[01235679]|[13579][01345789][2468][1235679]|[02468][048][02468][1235679]|[02468][1235679](0)[01235679]|[02468][1235679][2468][1235679]|[0-9][0-9][13579][01345789])[\-](02)[\-](0[1-9]|1[0-9]|2[0-8])T(([01][0-9]|2[0-3]):[0-5][0-9])Z)))"/>
 				</xsd:restriction>
 			</xsd:simpleType>
 		</xsd:attribute>
@@ -451,16 +458,6 @@
 		<xsd:attribute name="v" type="ecl:DirectionTypeList" use="required"/>
 	</xsd:complexType>
 	<!--_________________________________________________-->
-	<xsd:complexType name="DocumentType">
-		<xsd:annotation>
-			<xsd:documentation>
-				<Uid>ET0045 </Uid>
-				<Definition> (Synonym "Message Type") The coded type of a document. The document type describes the principal characteristic of a document</Definition>
-			</xsd:documentation>
-		</xsd:annotation>
-		<xsd:attribute name="v" type="ecl:DocumentTypeList" use="required"/>
-	</xsd:complexType>
-	<!--_________________________________________________-->
 	<xsd:complexType name="EicType">
 		<xsd:annotation>
 			<xsd:documentation>
@@ -490,6 +487,25 @@
 		<xsd:attribute name="v" type="ecl:IndicatorTypeList" use="required"/>
 	</xsd:complexType>
 	<!--_________________________________________________-->
+	<xsd:complexType name="DocumentType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0003 </Uid>
+				<Definition> (Synonym "Document Type") The coded type of a document. The document type describes the principal characteristic of a document. note this code is decrecated and should no longer be used in new messages (use documentType instead))</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="v" type="ecl:DocumentTypeList" use="required"/>
+	</xsd:complexType>
+	<!--_________________________________________________-->
+	<xsd:complexType name="MessageType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<Uid>ET0045 </Uid>
+				<Definition> (Synonym "Document Type") The coded type of a document. The document type describes the principal characteristic of a document</Definition>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="v" type="ecl:DocumentTypeList" use="required"/>
+	</xsd:complexType>
 	<!--_________________________________________________-->
 	<xsd:complexType name="ObjectAggregationType">
 		<xsd:annotation>
@@ -505,7 +521,7 @@
 		<xsd:annotation>
 			<xsd:documentation>
 				<Uid>ET0041</Uid>
-				<Definition>The identification of the domain that is the common dominator used to aggregate a time series..</Definition>
+				<Definition>The terms which dictate the determination of the bid payment price.</Definition>
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:attribute name="v" type="ecl:PaymentTermsTypeList" use="required"/>
@@ -514,6 +530,7 @@
 	<xsd:complexType name="PriceCategory">
 		<xsd:annotation>
 			<xsd:documentation>
+				<Uid>ET0048</Uid>
 				<Definition>The category of a price to be used in a price calculation. Note: the price category is mutually agreed between System Operators</Definition>
 			</xsd:documentation>
 		</xsd:annotation>
@@ -543,7 +560,6 @@
 	<xsd:complexType name="QualityType">
 		<xsd:annotation>
 			<xsd:documentation>
-				<Uid>ET0048</Uid>ocumentation>
 				<Uid>ET0036</Uid>
 				<Definition>The quality of an object.</Definition>
 			</xsd:documentation>

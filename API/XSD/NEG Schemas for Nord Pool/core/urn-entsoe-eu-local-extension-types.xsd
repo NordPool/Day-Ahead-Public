@@ -14,6 +14,10 @@
 			<xsd:enumeration value="A01"/>
 			<xsd:enumeration value="Z01"/>
 			<xsd:enumeration value="Z02"/>
+			<xsd:enumeration value="Z04"/>
+			<xsd:enumeration value="Z05"/>
+			<xsd:enumeration value="Z06"/>
+			<xsd:enumeration value="Z07"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalAuctionType">
@@ -28,6 +32,13 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A10"/>
+			<xsd:enumeration value="A66"/>
+			<xsd:enumeration value="A77"/>
+			<xsd:enumeration value="A78"/>
+			<xsd:enumeration value="A79"/>
+			<xsd:enumeration value="B14"/>
 			<xsd:enumeration value="Z02"/>
 			<xsd:enumeration value="Z03"/>
 			<xsd:enumeration value="Z06"/>
@@ -51,6 +62,9 @@
 			<xsd:enumeration value="Z63"/>
 			<xsd:enumeration value="Z64"/>
 			<xsd:enumeration value="Z65"/>
+			<xsd:enumeration value="Z66"/>
+			<xsd:enumeration value="Z67"/>
+			<xsd:enumeration value="Z68"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalCategoryType">
@@ -65,6 +79,7 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A02"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalCodingSchemeType">
@@ -85,9 +100,7 @@
 		<xsd:restriction base="xsd:NMTOKEN">
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
-			<xsd:enumeration value="NOK"/>
-			<xsd:enumeration value="SEK"/>
-			<xsd:enumeration value="DKK"/>
+			<xsd:enumeration value="EUR"/>
 			<xsd:enumeration value="LTL"/>
 			<xsd:enumeration value="RUB"/>
 		</xsd:restriction>
@@ -113,11 +126,18 @@
 			<xsd:enumeration value="A01"/>
 		</xsd:restriction>
 	</xsd:simpleType>
-	<xsd:simpleType name="LocalEnergyProductType">
+	<xsd:simpleType name="LocalHVDCModeType">
 		<xsd:restriction base="xsd:NMTOKEN">
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalEnergyProductType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="13"/>
+			<xsd:enumeration value="8716867000030"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalIndicatorType">
@@ -125,7 +145,6 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
-			<xsd:enumeration value="A02"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalDocumentType">
@@ -133,10 +152,14 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
-			<xsd:enumeration value="A24"/>
-			<xsd:enumeration value="A25"/>
+			<xsd:enumeration value="A07"/>
+			<xsd:enumeration value="A12"/>
+			<xsd:enumeration value="A14"/>
 			<xsd:enumeration value="A38"/>
 			<xsd:enumeration value="A44"/>
+			<xsd:enumeration value="A55"/>
+			<xsd:enumeration value="E31"/>
+			<xsd:enumeration value="E66"/>
 			<xsd:enumeration value="Z03"/>
 			<xsd:enumeration value="Z05"/>
 			<xsd:enumeration value="Z06"/>
@@ -145,6 +168,8 @@
 			<xsd:enumeration value="Z11"/>
 			<xsd:enumeration value="Z12"/>
 			<xsd:enumeration value="Z13"/>
+			<xsd:enumeration value="Z14"/>
+			<xsd:enumeration value="Z16"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalObjectAggregationType">
@@ -152,6 +177,7 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="Z01"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalPaymentTermsType">
@@ -180,6 +206,10 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A06"/>
+			<xsd:enumeration value="A13"/>
+			<xsd:enumeration value="A17"/>
+			<xsd:enumeration value="A28"/>
 			<xsd:enumeration value="Z01"/>
 			<xsd:enumeration value="Z02"/>
 			<xsd:enumeration value="Z03"/>
@@ -200,9 +230,18 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
-			<xsd:enumeration value="B09"/>
-			<xsd:enumeration value="B17"/>
-			<xsd:enumeration value="B21"/>
+			<xsd:enumeration value="A06"/>
+			<xsd:enumeration value="A09"/>
+			<xsd:enumeration value="A48"/>
+			<xsd:enumeration value="A85"/>
+			<xsd:enumeration value="A86"/>
+			<xsd:enumeration value="Z01"/>
+			<xsd:enumeration value="Z02"/>
+			<xsd:enumeration value="Z04"/>
+			<xsd:enumeration value="Z05"/>
+			<xsd:enumeration value="Z06"/>
+			<xsd:enumeration value="Z07"/>
+			<xsd:enumeration value="Z08"/>
 			<xsd:enumeration value="Z18"/>
 			<xsd:enumeration value="Z22"/>
 			<xsd:enumeration value="Z23"/>
@@ -222,6 +261,8 @@
 			<xsd:enumeration value="Z37"/>
 			<xsd:enumeration value="Z38"/>
 			<xsd:enumeration value="Z39"/>
+			<xsd:enumeration value="Z99"/>
+			<xsd:enumeration value="999"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRightsType">
@@ -236,9 +277,7 @@
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
 			<xsd:enumeration value="A01"/>
-			<xsd:enumeration value="A08"/>
-			<xsd:enumeration value="A11"/>
-			<xsd:enumeration value="A34"/>
+			<xsd:enumeration value="A05"/>
 			<xsd:enumeration value="Z05"/>
 		</xsd:restriction>
 	</xsd:simpleType>
@@ -260,6 +299,16 @@
 		<xsd:restriction base="xsd:NMTOKEN">
 			<xsd:minLength value="3"/>
 			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="KWH"/>
+			<xsd:enumeration value="MAW"/>
+			<xsd:enumeration value="MWH"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalUnitSymbolType">
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="KWT"/>
 			<xsd:enumeration value="MAW"/>
 			<xsd:enumeration value="MWH"/>
 		</xsd:restriction>
