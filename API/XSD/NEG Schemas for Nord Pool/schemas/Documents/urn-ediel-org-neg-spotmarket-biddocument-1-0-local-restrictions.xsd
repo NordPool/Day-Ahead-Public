@@ -18,8 +18,8 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedBusinessType">
-		<xsd:restriction base="ecl:LocalBusinessType">
-			<xsd:enumeration value="A01"/>
+		<xsd:restriction base="ecl:StandardBusinessTypeList">
+			<xsd:enumeration value="A02"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedCategoryType">
@@ -45,6 +45,7 @@
 	<xsd:simpleType name="LocalRestrictedCurrencyType">
 		<xsd:restriction base="ecl:LocalCurrencyType">
 			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="RUB"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedCurveType">
@@ -109,7 +110,7 @@
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedReasonCodeType">
 		<xsd:restriction base="ecl:LocalReasonCodeType">
-			<xsd:enumeration value="999"/>
+			<xsd:enumeration value="Z18"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedRightsType">
@@ -119,7 +120,7 @@
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedRoleType">
 		<xsd:restriction base="ecl:LocalRoleType">
-			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="Z05"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedStatusType">
@@ -133,6 +134,11 @@
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalRestrictedUnitOfMeasureType">
+		<xsd:restriction base="ecl:LocalUnitOfMeasureType">
+			<xsd:enumeration value="MWH"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedUnitOfMeasureQtyType">
 		<xsd:restriction base="ecl:LocalUnitOfMeasureType">
 			<xsd:enumeration value="MAW"/>
 		</xsd:restriction>

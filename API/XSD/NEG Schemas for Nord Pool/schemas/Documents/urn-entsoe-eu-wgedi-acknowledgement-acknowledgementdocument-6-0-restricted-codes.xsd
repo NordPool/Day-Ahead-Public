@@ -29,7 +29,6 @@
 			<xsd:enumeration value="A57"/>
 			<xsd:enumeration value="A59"/>
 			<xsd:enumeration value="A94"/>
-			<xsd:enumeration value="999"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="RestrictedReasonCodeType">
