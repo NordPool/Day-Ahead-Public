@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- import the codelsits -->
+	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="../../core/urn-entsoe-eu-wgedi-codelists.xsd"/>
+	<!-- include the local message restrictions -->
+	<xsd:include schemaLocation="urn-entsoe-eu-wgedi-acknowledgement-acknowledgementdocument-6-0-local-restrictions.xsd"/>
+	<!--  restricted codelists  -->
+	<xsd:complexType name="ReasonCodeType">
+		<xsd:attribute name="v" type="RestrictedReasonCodeType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedReasonCodeType">
+		<xsd:restriction base="ecl:StandardReasonCodeTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A02"/>
+			<xsd:enumeration value="A03"/>
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A20"/>
+			<xsd:enumeration value="A21"/>
+			<xsd:enumeration value="A41"/>
+			<xsd:enumeration value="A42"/>
+			<xsd:enumeration value="A46"/>
+			<xsd:enumeration value="A49"/>
+			<xsd:enumeration value="A50"/>
+			<xsd:enumeration value="A51"/>
+			<xsd:enumeration value="A52"/>
+			<xsd:enumeration value="A53"/>
+			<xsd:enumeration value="A55"/>
+			<xsd:enumeration value="A56"/>
+			<xsd:enumeration value="A57"/>
+			<xsd:enumeration value="A59"/>
+			<xsd:enumeration value="A94"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedReasonCodeType">
+		<xsd:union memberTypes="StandardRestrictedReasonCodeType LocalRestrictedReasonCodeType"/>
+	</xsd:simpleType>
+</xsd:schema>

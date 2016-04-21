@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by Erik Gustvavsen (EdiSys Consulting AS) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="../../core/urn-entsoe-eu-wgedi-codelists.xsd"/>
+	<!-- include the local message restrictions -->
+	<xsd:include schemaLocation="urn-ediel-org-neg-general-currencyexchangeratedocument-1-0-local-restrictions.xsd"/>
+	<!-- Coding Scheme  -->
+	<xsd:simpleType name="StandardRestrictedCodingSchemeType">
+		<xsd:restriction base="ecl:StandardCodingSchemeTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A10"/>
+			<xsd:enumeration value="NDK"/>
+			<xsd:enumeration value="NFI"/>
+			<xsd:enumeration value="NNO"/>
+			<xsd:enumeration value="NSE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedCodingSchemeType">
+		<xsd:union memberTypes="StandardRestrictedCodingSchemeType LocalRestrictedCodingSchemeType"/>
+	</xsd:simpleType>
+	<!-- Currency Type -->
+	<xsd:complexType name="CurrencyType">
+		<xsd:attribute name="v" type="RestrictedCurrencyTypeList" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedStandardCurrencyTypeList">
+		<xsd:restriction base="ecl:StandardCurrencyTypeList">
+			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="BGN"/>
+			<xsd:enumeration value="DKK"/>
+			<xsd:enumeration value="GBP"/>
+			<xsd:enumeration value="LTL"/>
+			<xsd:enumeration value="NOK"/>
+			<xsd:enumeration value="SEK"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedCurrencyTypeList">
+		<xsd:union memberTypes="RestrictedStandardCurrencyTypeList LocalRestrictedCurrencyType"/>
+	</xsd:simpleType>
+	<!-- Document Type -->
+	<xsd:complexType name="DocumentType">
+		<xsd:attribute name="v" type="RestrictedDocumentType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedDocumentType">
+		<xsd:restriction base="ecl:LocalDocumentType">
+			<xsd:enumeration value="Z07"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedDocumentType">
+		<xsd:union memberTypes="StandardRestrictedDocumentType LocalRestrictedDocumentType"/>
+	</xsd:simpleType>
+	<!-- Party Type -->
+	<xsd:complexType name="PartyType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="16"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!-- Reason Code Type -->
+	<xsd:complexType name="ReasonCodeType">
+		<xsd:attribute name="v" type="RestrictedReasonCodeTypeList" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedStandardReasonCodeTypeList">
+		<xsd:restriction base="ecl:StandardReasonCodeTypeList">
+			<xsd:enumeration value="B17"/>
+			<xsd:enumeration value="B21"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedReasonCodeTypeList">
+		<xsd:union memberTypes="RestrictedStandardReasonCodeTypeList LocalRestrictedReasonCodeType"/>
+	</xsd:simpleType>
+	<!-- Role Type -->
+	<xsd:complexType name="RoleType">
+		<xsd:attribute name="v" type="RestrictedRoleType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedRoleType">
+		<xsd:restriction base="ecl:StandardRoleTypeList">
+			<xsd:enumeration value="A04"/>
+			<xsd:enumeration value="A08"/>
+			<xsd:enumeration value="A11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedRoleType">
+		<xsd:union memberTypes="StandardRestrictedRoleType LocalRestrictedRoleType"/>
+	</xsd:simpleType>
+</xsd:schema>
