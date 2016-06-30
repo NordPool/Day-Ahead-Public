@@ -158,6 +158,8 @@
 			<xsd:enumeration value="A38"/>
 			<xsd:enumeration value="A44"/>
 			<xsd:enumeration value="A55"/>
+			<xsd:enumeration value="A59"/>
+			<xsd:enumeration value="A60"/>
 			<xsd:enumeration value="E31"/>
 			<xsd:enumeration value="E66"/>
 			<xsd:enumeration value="Z03"/>
@@ -170,6 +172,7 @@
 			<xsd:enumeration value="Z13"/>
 			<xsd:enumeration value="Z14"/>
 			<xsd:enumeration value="Z16"/>
+			<xsd:enumeration value="Z17"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="LocalObjectAggregationType">

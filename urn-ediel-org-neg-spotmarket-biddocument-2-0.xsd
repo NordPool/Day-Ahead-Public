@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Erik Gustavsen (EdiSys Consulting AS) -->
+<xsd:schema xmlns:ecc="urn:entsoe.eu:wgedi:components" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:ediel:org:neg:spotmarket:biddocument:2:0" targetNamespace="urn:ediel:org:neg:spotmarket:biddocument:2:0" elementFormDefault="qualified" attributeFormDefault="unqualified" ecc:VersionRelease="15.0">
+	<xsd:import namespace="urn:entsoe.eu:wgedi:components" schemaLocation="../../core/urn-entsoe-eu-wgedi-components.xsd"/>
+	<xsd:include schemaLocation="urn-ediel-org-neg-spotmarket-biddocument-2-0-restricted-codes.xsd"/>
+	<!--
+			Spot Market Bid Document version 2.0. NTC (Nordic Ediel Group Technical Commeettee)
+			Change log:
+				20160628 Extended with SystemBidIdentification and BidResponsibleIdentification
+		-->
+	<xsd:element name="SpotMarketBidDocument">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocumentIdentification" type="ecc:IdentificationType"/>
+				<xsd:element name="DocumentVersion" type="ecc:VersionType"/>
+				<xsd:element name="DocumentType" type="DocumentType"/>
+				<xsd:element name="ProcessType" type="ProcessType"/>
+				<xsd:element name="SenderIdentification" type="PartyType"/>
+				<xsd:element name="SenderRole" type="RoleType"/>
+				<xsd:element name="ReceiverIdentification" type="PartyType"/>
+				<xsd:element name="ReceiverRole" type="RoleType"/>
+				<xsd:element name="CreationDateTime" type="ecc:DocumentDateTimeType"/>
+				<xsd:element name="BidTimeInterval" type="ecc:TimeIntervalType"/>
+				<xsd:element name="Domain" type="AreaType"/>
+				<xsd:element name="SubjectParty" type="PartyType"/>
+				<xsd:element name="SubjectRole" type="RoleType"/>
+				<xsd:element name="SpotMarketBidTimeSeries" type="SpotMarketBidTimeSeries_Type" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="SpotMarketBidTimeSeries_Type">
+		<xsd:sequence>
+			<xsd:element name="BidIdentification" type="ecc:IdentificationType"/>
+			<xsd:element name="PortfolioIdentification" type="ecc:IdentificationType"/>
+			<xsd:element name="AuctionIdentification" type="ecc:IdentificationType" minOccurs="0"/>
+			<xsd:element name="BidType" type="BidTypeCodeType"/>
+			<xsd:element name="BusinessType" type="BusinessType"/>
+			<xsd:element name="BiddingArea" type="AreaType"/>
+			<xsd:element name="MeasureUnitQuantity" type="UnitOfMeasureQtyType"/>
+			<xsd:element name="Currency" type="CurrencyType"/>
+			<xsd:element name="MeasureUnitPrice" type="UnitOfMeasureType"/>
+			<xsd:element name="Divisible" type="ecc:IndicatorType" minOccurs="0"/>
+			<xsd:element name="LinkedBidsIdentification" type="ecc:IdentificationType" minOccurs="0"/>
+			<xsd:element name="SystemBidIdentification" type="ecc:LongIdentificationType" minOccurs="0"/>
+			<xsd:element name="ExclusiveGroupIdentification" type="ecc:IdentificationType" minOccurs="0"/>
+			<xsd:element name="BidResponsibleIdentification" type="ecc:IdentificationType" minOccurs="0"/>
+			<xsd:element name="Period" type="Period_Type" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Period_Type">
+		<xsd:sequence>
+			<xsd:element name="TimeInterval" type="ecc:TimeIntervalType"/>
+			<xsd:element name="Resolution" type="ecc:ResolutionType"/>
+			<xsd:element name="BidInterval" type="BidInterval_Type" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BidInterval_Type">
+		<xsd:sequence>
+			<xsd:element name="Pos" type="ecc:PositionType"/>
+			<xsd:element name="BidQtyPrice" type="BidQtyPrice_Type" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BidQtyPrice_Type">
+		<xsd:sequence>
+			<xsd:element name="Sequence" type="ecc:PositionType"/>
+			<xsd:choice>
+				<xsd:element name="SellingQty" type="ecc:QuantityType"/>
+				<xsd:element name="BuyingQty" type="ecc:QuantityType"/>
+			</xsd:choice>
+			<xsd:element name="Price" type="ecc:AmountType"/>
+			<xsd:element name="ConversionPrice" type="ecc:AmountType" minOccurs="0"/>
+			<xsd:element name="MinAcceptanceRatio" type="ecc:QuantityType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

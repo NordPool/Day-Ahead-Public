@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="../../core/urn-entsoe-eu-wgedi-codelists.xsd"/>
+	<!-- include the local message restrictions -->
+	<xsd:include schemaLocation="urn-ediel-org-neg-spotmarket-biddocument-2-0-local-restrictions.xsd"/>
+	<!-- Coding Scheme  -->
+	<xsd:simpleType name="StandardRestrictedCodingSchemeType">
+		<xsd:restriction base="ecl:StandardCodingSchemeTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A10"/>
+			<xsd:enumeration value="NDK"/>
+			<xsd:enumeration value="NFI"/>
+			<xsd:enumeration value="NNO"/>
+			<xsd:enumeration value="NSE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedCodingSchemeType">
+		<xsd:union memberTypes="StandardRestrictedCodingSchemeType LocalRestrictedCodingSchemeType"/>
+	</xsd:simpleType>
+	<!-- Area Type  -->
+	<xsd:complexType name="AreaType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="18"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!-- Bid Type -->
+	<xsd:complexType name="BidTypeCodeType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="Z01"/>
+					<xsd:enumeration value="Z02"/>
+					<xsd:enumeration value="Z03"/>
+					<xsd:enumeration value="Z04"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<!-- Business Type -->
+	<xsd:complexType name="BusinessType">
+		<xsd:attribute name="v" type="RestrictedBusinessType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedBusinessType">
+		<xsd:restriction base="ecl:StandardBusinessTypeList">
+			<xsd:enumeration value="A02"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedBusinessType">
+		<xsd:union memberTypes="StandardRestrictedBusinessType LocalRestrictedBusinessType"/>
+	</xsd:simpleType>
+	<!-- Contract Type -->
+	<xsd:complexType name="ContractType">
+		<xsd:attribute name="v" type="RestrictedContractType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedContractType">
+		<xsd:restriction base="ecl:StandardContractTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A02"/>
+			<xsd:enumeration value="A07"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedContractType">
+		<xsd:union memberTypes="StandardRestrictedContractType LocalRestrictedContractType"/>
+	</xsd:simpleType>
+	<!-- Currency Type -->
+	<xsd:complexType name="CurrencyType">
+		<xsd:attribute name="v" type="RestrictedCurrencyTypeList" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="RestrictedStandardCurrencyTypeList">
+		<xsd:restriction base="ecl:StandardCurrencyTypeList">
+			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="BGN"/>
+			<xsd:enumeration value="DKK"/>
+			<xsd:enumeration value="GBP"/>
+			<xsd:enumeration value="LTL"/>
+			<xsd:enumeration value="NOK"/>
+			<xsd:enumeration value="SEK"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedCurrencyTypeList">
+		<xsd:union memberTypes="RestrictedStandardCurrencyTypeList LocalRestrictedCurrencyType"/>
+	</xsd:simpleType>
+	<!-- Document Type -->
+	<xsd:complexType name="DocumentType">
+		<xsd:attribute name="v" type="RestrictedDocumentType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedDocumentType">
+		<xsd:restriction base="ecl:StandardDocumentTypeList">
+			<xsd:enumeration value="A24"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedDocumentType">
+		<xsd:union memberTypes="StandardRestrictedDocumentType LocalRestrictedDocumentType"/>
+	</xsd:simpleType>
+	<!-- Party Type -->
+	<xsd:complexType name="PartyType">
+		<xsd:attribute name="v" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="16"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="codingScheme" type="RestrictedCodingSchemeType" use="required"/>
+	</xsd:complexType>
+	<!-- Process Type -->
+	<xsd:complexType name="ProcessType">
+		<xsd:attribute name="v" type="RestrictedProcessType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedProcessType">
+		<xsd:restriction base="ecl:StandardProcessTypeList">
+			<xsd:enumeration value="A01"/>
+			<xsd:enumeration value="A19"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedProcessType">
+		<xsd:union memberTypes="StandardRestrictedProcessType LocalRestrictedProcessType"/>
+	</xsd:simpleType>
+	<!-- Role Type -->
+	<xsd:complexType name="RoleType">
+		<xsd:attribute name="v" type="RestrictedRoleType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedRoleType">
+		<xsd:restriction base="ecl:StandardRoleTypeList">
+			<xsd:enumeration value="A08"/>
+			<xsd:enumeration value="A11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedRoleType">
+		<xsd:union memberTypes="StandardRestrictedRoleType LocalRestrictedRoleType"/>
+	</xsd:simpleType>
+	<!-- Unit of Measure Type -->
+	<xsd:complexType name="UnitOfMeasureType">
+		<xsd:attribute name="v" type="RestrictedUnitOfMeasureType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedUnitOfMeasureType">
+		<xsd:restriction base="ecl:StandardUnitOfMeasureTypeList">
+			<xsd:enumeration value="MWH"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedUnitOfMeasureType">
+		<xsd:union memberTypes="StandardRestrictedUnitOfMeasureType LocalRestrictedUnitOfMeasureType"/>
+	</xsd:simpleType>
+	<!-- Unit of Measure Qty Type -->
+	<xsd:complexType name="UnitOfMeasureQtyType">
+		<xsd:attribute name="v" type="RestrictedUnitOfMeasureQtyType" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="StandardRestrictedUnitOfMeasureQtyType">
+		<xsd:restriction base="ecl:StandardUnitOfMeasureTypeList">
+			<xsd:enumeration value="MAW"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedUnitOfMeasureQtyType">
+		<xsd:union memberTypes="StandardRestrictedUnitOfMeasureQtyType LocalRestrictedUnitOfMeasureQtyType"/>
+	</xsd:simpleType>
+</xsd:schema>

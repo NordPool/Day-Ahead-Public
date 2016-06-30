@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecl="urn:entsoe.eu:wgedi:codelists" elementFormDefault="qualified">
+	<!-- need to add followinfg to enable access to standard codelists -->
+	<xsd:import namespace="urn:entsoe.eu:wgedi:codelists" schemaLocation="../../core/urn-entsoe-eu-wgedi-codelists.xsd"/>
+	<xsd:simpleType name="LocalRestrictedAllocationModeType">
+		<xsd:restriction base="ecl:LocalAllocationModeType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedAssetType">
+		<xsd:restriction base="ecl:LocalAssetType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedAuctionType">
+		<xsd:restriction base="ecl:LocalAuctionType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedBusinessType">
+		<xsd:restriction base="ecl:StandardBusinessTypeList">
+			<xsd:enumeration value="A06"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedCategoryType">
+		<xsd:restriction base="ecl:LocalCategoryType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedClassificationType">
+		<xsd:restriction base="ecl:LocalClassificationType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedCodingSchemeType">
+		<xsd:restriction base="ecl:LocalCodingSchemeType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedContractType">
+		<xsd:restriction base="ecl:LocalContractType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedCurrencyType">
+		<xsd:restriction base="ecl:LocalCurrencyType">
+			<xsd:enumeration value="EUR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedCurveType">
+		<xsd:restriction base="ecl:LocalCurveType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedDirectionType">
+		<xsd:restriction base="ecl:LocalDirectionType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedEicType">
+		<xsd:restriction base="ecl:LocalEicType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedEnergyProductType">
+		<xsd:restriction base="ecl:LocalEnergyProductType">
+			<xsd:enumeration value="8716867000030"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedIndicatorType">
+		<xsd:restriction base="ecl:LocalIndicatorType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedDocumentType">
+		<xsd:restriction base="ecl:LocalDocumentType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedObjectAggregationType">
+		<xsd:restriction base="ecl:LocalObjectAggregationType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedPaymentTermsType">
+		<xsd:restriction base="ecl:LocalPaymentTermsType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedPriceCategoryType">
+		<xsd:restriction base="ecl:LocalPriceCategoryType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedPriceDirectionType">
+		<xsd:restriction base="ecl:LocalPriceDirectionType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedProcessType">
+		<xsd:restriction base="ecl:LocalProcessType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedQualityType">
+		<xsd:restriction base="ecl:LocalQualityType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedReasonCodeType">
+		<xsd:restriction base="ecl:LocalReasonCodeType">
+			<xsd:enumeration value="Z18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedRightsType">
+		<xsd:restriction base="ecl:LocalRightsType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedRoleType">
+		<xsd:restriction base="ecl:LocalRoleType">
+			<xsd:enumeration value="Z05"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedStatusType">
+		<xsd:restriction base="ecl:LocalStatusType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedTarifTypeType">
+		<xsd:restriction base="ecl:LocalTarifTypeType">
+			<xsd:enumeration value="A01"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedUnitOfMeasureType">
+		<xsd:restriction base="ecl:LocalUnitOfMeasureType">
+			<xsd:enumeration value="MWH"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LocalRestrictedUnitOfMeasureQtyType">
+		<xsd:restriction base="ecl:LocalUnitOfMeasureType">
+			<xsd:enumeration value="MAW"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
