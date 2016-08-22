@@ -70,8 +70,6 @@
 				<xsd:element name="AllocationTimeSeries" type="AllocationTimeSeries_Type" minOccurs="0" maxOccurs="unbounded"/>
 				<xsd:element name="Reason" type="Reason_Type" minOccurs="0" maxOccurs="unbounded"/>
 			</xsd:sequence>
-			<xsd:attribute name="DtdVersion" type="xsd:string" use="required"/>
-			<xsd:attribute name="DtdRelease" type="xsd:string" use="required"/>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:complexType name="Reason_Type">
